@@ -10,7 +10,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://wguilherme.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -64,6 +64,10 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    require.resolve("@easyops-cn/docusaurus-search-local"),
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
@@ -81,6 +85,11 @@ const config: Config = {
           label: 'Tutorial',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
+        {
+          type: 'search',
+          position: 'right',
+          className: 'navbar-search-button',
+        },
         {
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',
@@ -136,6 +145,14 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+    },
+    search: {
+      keyboardShortcuts: true,
+      searchBarPosition: 'auto',
+      searchBarShortcutHint: true,
+      searchByLanguage: true,
+      searchByTags: true,
+      searchByCategories: true,
     },
   } satisfies Preset.ThemeConfig,
 };

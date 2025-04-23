@@ -1,7 +1,7 @@
 ---
-slug: first-blog-post
-title: First Blog Post
-authors: [slorber, yangshun]
+slug: hello-world
+title: Hello
+authors: [wguilherme]
 tags: [hola, docusaurus]
 ---
 
