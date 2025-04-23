@@ -1,0 +1,89 @@
+---
+slug: react-flow-demo
+title: 'Demonstração do React Flow: Criando Fluxos Interativos'
+authors: [yangshun]
+tags: [react, reactflow, tutorial, frontend]
+---
+
+import ReactFlowDemo from '@site/src/components/ReactFlowDemo';
+
+# Demonstração do React Flow: Criando Fluxos Interativos
+
+O React Flow é uma biblioteca poderosa para criar interfaces de usuário baseadas em nós e fluxos. Neste post, vamos explorar um exemplo básico de como implementar um fluxo interativo usando React Flow.
+
+## O que é React Flow?
+
+React Flow é uma biblioteca React para criar editores de fluxo de trabalho, diagramas de processo, ou qualquer interface baseada em nós. É altamente personalizável e oferece recursos como:
+
+- Arrastar e soltar nós
+- Conectar nós com arestas
+- Zoom e pan
+- Mini-mapas
+- Controles de visualização
+- E muito mais!
+
+## Exemplo Prático
+
+Abaixo está um exemplo interativo de um fluxo simples com três nós conectados:
+
+<ReactFlowDemo />
+
+## Como Implementar
+
+Para implementar este exemplo, você precisará:
+
+1. Instalar o React Flow:
+```bash
+npm install reactflow
+```
+
+2. Importar os componentes necessários:
+```jsx
+import ReactFlow, {
+  MiniMap,
+  Controls,
+  Background,
+  useNodesState,
+  useEdgesState,
+  addEdge,
+} from 'reactflow';
+```
+
+3. Definir os nós e arestas iniciais:
+```jsx
+const initialNodes = [
+  {
+    id: '1',
+    type: 'input',
+    data: { label: 'Nó de Entrada' },
+    position: { x: 250, y: 25 },
+  },
+  // ... mais nós
+];
+
+const initialEdges = [
+  { id: 'e1-2', source: '1', target: '2' },
+  // ... mais arestas
+];
+```
+
+4. Implementar o componente React Flow com os estados necessários:
+```jsx
+const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+```
+
+## Recursos Adicionais
+
+O exemplo acima inclui vários recursos úteis:
+
+- **MiniMap**: Uma visão em miniatura do fluxo
+- **Controls**: Botões para zoom e ajuste de visualização
+- **Background**: Um fundo com pontos para melhor visualização
+- **Interatividade**: Você pode arrastar os nós e criar novas conexões
+
+## Conclusão
+
+React Flow é uma ferramenta incrível para criar interfaces de usuário baseadas em nós. Este exemplo demonstra apenas o básico - a biblioteca oferece muito mais recursos para criar fluxos complexos e personalizados.
+
+Para mais informações, visite a [documentação oficial do React Flow](https://reactflow.dev/docs/introduction/). 
